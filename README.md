@@ -4,7 +4,7 @@ Going on the models and structures in this project, we get a default User Model 
 
 I have downloaded all the images in this project from "https://unsplash.com/," and the prices and names of these products are arbitrary. The Website also has a forget password option, and I have made it so that when the user will proceed to this option, the link to reset the password will be sent on the console and not on the actual email-id. To get a responsive website, I have also written some Java and CSS script, the rest of the CSS and JavaScript is used from "https://getbootstrap.com/docs/5.1/getting-started/introduction/".
 
-The 'app' folder has all the main code files including templates fo the webpages and product on sale images.
+The 'app' folder has all the main code files including templates for the webpages, images of the products that are on sale, all the urls and views, admin file, etc.
 
 The 'media' folder has all the products images.
 
