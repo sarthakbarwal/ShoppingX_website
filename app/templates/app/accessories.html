@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Accessories{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+    <div class="list-group">
+        <a href="{% url 'accessories' %}" class="list-group-item list-group-item-action" aria_current="true">All Accessoriess</a>
+        <a href="{% url 'accessoriesdata' 'Woodland' %}" class="list-group-item list-group-item-action" aria_current="true">Woodland</a>
+        <a href="{% url 'accessoriesdata' '705' %}" class="list-group-item list-group-item-action" aria_current="true">705</a>
+        <a href="{% url 'accessoriesdata' 'Trail' %}" class="list-group-item list-group-item-action" aria_current="true">Trail</a>
+        <a href="{% url 'accessoriesdata' 'NBL' %}" class="list-group-item list-group-item-action" aria_current="true">NBL</a>
+        <a href="{% url 'accessoriesdata' 'Bloglow' %}" class="list-group-item list-group-item-action" aria_current="true">Bloglow</a>
+        <a href="{% url 'accessoriesdata' 'Raymonds' %}" class="list-group-item list-group-item-action" aria_current="true">Raymonds</a>
+        <a href="{% url 'accessoriesdata' 'RAY-BAN' %}" class="list-group-item list-group-item-action" aria_current="true">RAY-BAN</a>
+        <a href="{% url 'accessoriesdata' 'Loreal' %}" class="list-group-item list-group-item-action" aria_current="true">Loreal</a>
+        <a href="{% url 'accessoriesdata' 'OPI' %}" class="list-group-item list-group-item-action" aria_current="true">OPI</a>
+        <a href="{% url 'accessoriesdata' 'COCO' %}" class="list-group-item list-group-item-action" aria_current="true">COCO</a>
+        <a href="{% url 'accessoriesdata' 'Vlrsace' %}" class="list-group-item list-group-item-action" aria_current="true">Vlrsace</a>
+        <a href="{% url 'accessoriesdata' 'ParkAvenue' %}" class="list-group-item list-group-item-action" aria_current="true">ParkAvenue</a>
+        <a href="{% url 'accessoriesdata' 'COCOOIL' %}" class="list-group-item list-group-item-action" aria_current="true">COCOOIL</a>
+        <a href="{% url 'accessoriesdata' 'Natchu' %}" class="list-group-item list-group-item-action" aria_current="true">Natchu</a>
+        <a href="{% url 'accessoriesdata' 'Nike' %}" class="list-group-item list-group-item-action" aria_current="true">Nike</a>
+        <a href="{% url 'accessoriesdata' 'Jordan' %}" class="list-group-item list-group-item-action" aria_current="true">Jordan</a>
+        <a href="{% url 'accessoriesdata' 'puma' %}" class="list-group-item list-group-item-action" aria_current="true">puma</a>
+        <a href="{% url 'accessoriesdata' 'Tissot' %}" class="list-group-item list-group-item-action" aria_current="true">Tissot</a>
+        <a href="{% url 'accessoriesdata' 'IOC' %}" class="list-group-item list-group-item-action" aria_current="true">IOC</a>
+        <a href="{% url 'accessoriesdata' 'Fossil' %}" class="list-group-item list-group-item-action" aria_current="true">Fossil</a>
+        <a href="{% url 'accessoriesdata' 'Addidas' %}" class="list-group-item list-group-item-action" aria_current="true">Addidas</a>
+        <a href="{% url 'accessoriesdata' 'below' %}" class="list-group-item list-group-item-action" aria_current="true">Below 1000</a>
+        <a href="{% url 'accessoriesdata' 'below2' %}" class="list-group-item list-group-item-action" aria_current="true">Below 2000</a>
+        <a href="{% url 'accessoriesdata' 'below3' %}" class="list-group-item list-group-item-action" aria_current="true">Below 3000</a>
+        <a href="{% url 'accessoriesdata' 'below4' %}" class="list-group-item list-group-item-action" aria_current="true">Below 5000</a>
+        <a href="{% url 'accessoriesdata' 'below5' %}" class="list-group-item list-group-item-action" aria_current="true">Below 10000</a>
+        <a href="{% url 'accessoriesdata' 'above' %}" class="list-group-item list-group-item-action" aria_current="true">Above 10000</a>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="row">
+        {% for  product in accessories %}
+            <div class="col-sm-4 text-center mb-4">
+                <a href="{% url 'product-detail' product.id %}" class="btn">
+                    <div class="item">
+                        <img src="{{product.product_image.url}}" alt="{{product.title}}" class="" style="width:15vw; height:26vw">
+                        <div class="fw-bold">{{product.title}}</div>
+                        <div class="fw-bold">Rs.{{product.discounted_price}}
+                        <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>  
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

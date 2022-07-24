@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Smartphones{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row" style="padding-bottom:40vh">
+  <div class="col-sm-3">
+    <div class="list-group">
+        <a href="{% url 'smartphone' %}" class="list-group-item list-group-item-action" aria_current="true">All Smartphones</a>
+        <a href="{% url 'smartphonedata' 'oppo' %}" class="list-group-item list-group-item-action" aria_current="true">OPPO</a>
+        <a href="{% url 'smartphonedata' 'Samsung' %}" class="list-group-item list-group-item-action" aria_current="true">Samsung</a>
+        <a href="{% url 'smartphonedata' 'Apple' %}" class="list-group-item list-group-item-action" aria_current="true">Apple</a>
+        <a href="{% url 'smartphonedata' 'vivo' %}" class="list-group-item list-group-item-action" aria_current="true">VIVO</a>
+        <a href="{% url 'smartphonedata' 'Nokia' %}" class="list-group-item list-group-item-action" aria_current="true">Nokia</a>
+        <a href="{% url 'smartphonedata' 'below' %}" class="list-group-item list-group-item-action" aria_current="true">Below 10000</a>
+        <a href="{% url 'smartphonedata' 'below2' %}" class="list-group-item list-group-item-action" aria_current="true">Below 20000</a>
+        <a href="{% url 'smartphonedata' 'above' %}" class="list-group-item list-group-item-action" aria_current="true">Above 20000</a>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="row">
+        {% for  product in smartphone %}
+            <div class="col-sm-4 text-center mb-4">
+                <a href="{% url 'product-detail' product.id %}" class="btn">
+                    <div class="item">
+                        <img src="{{product.product_image.url}}" alt="{{product.title}}" class="" style="width:15vw; height:26vw">
+                        <div class="fw-bold">{{product.title}}</div>
+                        <div class="fw-bold">Rs.{{product.discounted_price}}
+                        <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>  
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
